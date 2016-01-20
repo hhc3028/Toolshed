@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Toolshed</title>
+
+        <!--Scripts!-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-route.js"></script>
+        <script src="Scripts/jquery-1.11.2.min.js"></script>
+        <!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>-->
+        <script src="Scripts/app.js"></script>
+        <script src="Scripts/headerCtrl.js"></script>
+        <script src="Scripts/UserService.js"></script>
+        <script src="Scripts/DataService.js"></script>
+
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2UEEyUDuX9r2_8BahuXmhD8YRKyCRXAI"></script>
+
+        <style>
+            @font-face {
+                font-family: 'bebas-neue';
+                src: url('Font/BebasNeue.eot');
+                src: url('Font/BebasNeue.eot?#iefix') format('embedded-opentype'),
+                    url('Font/BebasNeue.svg#bebas-neue') format('svg'),
+                    url('Font/BebasNeue.woff') format('woff'),
+                    url('Font/BebasNeue.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+
+        <script src="Scripts/homeCtrl.js"></script>
+        <script src="Scripts/searchCtrl.js"></script>
+				<script src="Scripts/reportCtrl.js"></script>
+				<script src="Scripts/guideCtrl.js"></script>
+
+        <link href="Styles/hover.css" rel="stylesheet" media="all">
+        <link href="Styles/index.css" rel="stylesheet" />
+
+    </head>
+    <body ng-app="toolshedApp">
+        <div id="fullPage">
+
+            <!--Header-->
+            <div id="header" data-ng-controller="HeaderCtrl">
+                <div class="logo">
+									<div class="large-text button hvr-grow-rotate"
+											 data-ng-click="returnHome()">Toolshed</div>
+                    <div data-ng-show="loggedIn()"
+                         class="right">
+                        <div style="float:left;">
+                            <a data-ng-click="reportIssue()" class="user-report hvr-grow-rotate">Report Issue</a>
+                            <a class="user-report">{{username}}</a>
+                        </div>
+                        <div id="login" class="right">
+                            <a data-ng-click="logout()">Logout</a>
+                        </div>
+                    </div>
+                    <a data-ng-show="!loggedIn()"
+                       data-ng-click="login()"
+                       class="right button" id="login">Login</a>
+                </div>
+            </div>
+            <!-- Angular App -->
+            <div id="app" data-ng-view=""></div>
+
+            <!-- Footer -->
+					<!--
+            <div class="text-center" style="margin-top:10px;">
+                <div id="legal"><strong>&copy; 2015 - CS 465 Team 09</strong></div>
+            </div>
+						-->
+        </div>
+    </body>
+</html>
